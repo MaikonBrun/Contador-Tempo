@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Tempo Juntos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f7f7f7;
+        }
+        h1 {
+            color: #ff4d6d;
+        }
+        #contador {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Estamos juntos há:</h1>
+    <div id="contador"></div>
+
+    <script>
+        function atualizarContador() {
+            const dataInicio = new Date("2024-10-11T00:00:00"); // Data corrigida
+            const agora = new Date();
+            const diferenca = agora - dataInicio;
+
+            const segundos = Math.floor(diferenca / 1000) % 60;
+            const minutos = Math.floor(diferenca / (1000 * 60)) % 60;
+            const horas = Math.floor(diferenca / (1000 * 60 * 60)) % 24;
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const meses = Math.floor(dias / 30); // Aproximado
+            const anos = Math.floor(meses / 12);
+
+            document.getElementById("contador").innerHTML = 
+                `${anos} anos, ${meses % 12} meses, ${dias % 30} dias, ` +
+                `${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        }
+
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+    </script>
+</body>
+</html>
