@@ -19,8 +19,7 @@
             overflow: hidden;
         }
         h1 {
-            font-size: 2em; /* Diminui o tamanho */
-            color: White; /* Muda a cor para vermelho */
+            font-size: 3em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
         p {
@@ -39,14 +38,40 @@
         function atualizarContador() {
             const dataInicio = new Date("2024-10-11T00:00:00");
             const agora = new Date();
-            const diferenca = agora - dataInicio;
+            
+            let anos = agora.getFullYear() - dataInicio.getFullYear();
+            let meses = agora.getMonth() - dataInicio.getMonth();
+            let dias = agora.getDate() - dataInicio.getDate();
+            let horas = agora.getHours() - dataInicio.getHours();
+            let minutos = agora.getMinutes() - dataInicio.getMinutes();
+            let segundos = agora.getSeconds() - dataInicio.getSeconds();
 
-            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
-            const minutos = Math.floor((diferenca / (1000 * 60)) % 60);
-            const segundos = Math.floor((diferenca / 1000) % 60);
+            // Ajuste para datas negativas
+            if (segundos < 0) {
+                segundos += 60;
+                minutos--;
+            }
+            if (minutos < 0) {
+                minutos += 60;
+                horas--;
+            }
+            if (horas < 0) {
+                horas += 24;
+                dias--;
+            }
+            if (dias < 0) {
+                const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
+                dias += ultimoDiaMesAnterior;
+                meses--;
+            }
+            if (meses < 0) {
+                meses += 12;
+                anos--;
+            }
 
             document.getElementById("contador").innerHTML =
+                anos + " anos, " +
+                meses + " meses, " + 
                 dias + " dias, " + 
                 horas.toString().padStart(2, '0') + " horas, " + 
                 minutos.toString().padStart(2, '0') + " minutos e " + 
