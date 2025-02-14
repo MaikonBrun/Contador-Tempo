@@ -17,6 +17,7 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
+            flex-direction: column;
         }
         h1 {
             font-size: 2.5em;
@@ -26,17 +27,31 @@
             font-size: 1.8em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #ffffffcc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #ffffff;
+        }
     </style>
 </head>
 <body>
     <div>
         <h1>Estamos juntos há:</h1>
         <p id="contador"></p>
+        <button id="playPauseBtn">Tocar Música</button>
     </div>
 
-    <!-- Música que toca automaticamente -->
-    <audio autoplay loop>
-        <source src="WhatsApp Audio 2025-02-14 at 15.26.16.mp4" type="audio/mpeg">
+    <!-- Música com controle de play/pause -->
+    <audio id="musica" loop>
+        <source src="WhatsApp-Audio-2025-02-14-at-15.26.16-1.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
 
@@ -85,6 +100,20 @@
         }
 
         setInterval(atualizarContador, 1000);
+
+        // Controle de Play/Pause
+        const musica = document.getElementById("musica");
+        const playPauseBtn = document.getElementById("playPauseBtn");
+
+        playPauseBtn.addEventListener("click", () => {
+            if (musica.paused) {
+                musica.play();
+                playPauseBtn.textContent = "Pausar Música";
+            } else {
+                musica.pause();
+                playPauseBtn.textContent = "Tocar Música";
+            }
+        });
     </script>
 </body>
 </html>
