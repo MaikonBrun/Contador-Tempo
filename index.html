@@ -6,7 +6,7 @@
     <title>Contador de Tempo de Namoro</title>
     <style>
         body {
-            background: url('https://github.com/MaikonBrun/Contador-Tempo/blob/main/WhatsApp%20Image%202025-02-13%20at%2016.59.25.jpeg?raw=true') no-repeat center center fixed;
+            background: url('https://github.com/MaikonBrun/Contador-Tempo/blob/main/WhatsApp%20Image%202025-02-14%20at%2012.41.08.jpeg?raw=true') no-repeat center center fixed;
             background-size: cover;
             color: white;
             text-align: center;
@@ -19,11 +19,11 @@
             overflow: hidden;
         }
         h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
         p {
-            font-size: 2em;
+            font-size: 1.8em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
     </style>
@@ -38,7 +38,7 @@
         function atualizarContador() {
             const dataInicio = new Date("2024-10-11T00:00:00");
             const agora = new Date();
-            
+
             let anos = agora.getFullYear() - dataInicio.getFullYear();
             let meses = agora.getMonth() - dataInicio.getMonth();
             let dias = agora.getDate() - dataInicio.getDate();
@@ -46,7 +46,7 @@
             let minutos = agora.getMinutes() - dataInicio.getMinutes();
             let segundos = agora.getSeconds() - dataInicio.getSeconds();
 
-            // Ajuste para datas negativas
+            // Ajustar os valores negativos
             if (segundos < 0) {
                 segundos += 60;
                 minutos--;
@@ -60,9 +60,9 @@
                 dias--;
             }
             if (dias < 0) {
+                meses--;
                 const ultimoDiaMesAnterior = new Date(agora.getFullYear(), agora.getMonth(), 0).getDate();
                 dias += ultimoDiaMesAnterior;
-                meses--;
             }
             if (meses < 0) {
                 meses += 12;
@@ -71,10 +71,10 @@
 
             document.getElementById("contador").innerHTML =
                 anos + " anos, " +
-                meses + " meses, " + 
-                dias + " dias, " + 
-                horas.toString().padStart(2, '0') + " horas, " + 
-                minutos.toString().padStart(2, '0') + " minutos e " + 
+                meses + " meses, " +
+                dias + " dias, " +
+                horas.toString().padStart(2, '0') + " horas, " +
+                minutos.toString().padStart(2, '0') + " minutos e " +
                 segundos.toString().padStart(2, '0') + " segundos";
         }
 
