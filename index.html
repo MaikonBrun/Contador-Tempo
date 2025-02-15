@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+[17:26, 13/02/2025] Bruno: <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -17,14 +17,39 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            flex-direction: column;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
         p {
-            font-size: 1.8em;
+            font-size: 2em;…
+[17:34, 13/02/2025] Bruno: <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Tempo de Namoro</title>
+    <style>
+        body {
+            background: url('LINK-DA-IMAGEM') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+        p {
+            font-size: 2em;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
     </style>
@@ -33,14 +58,7 @@
     <div>
         <h1>Estamos juntos há:</h1>
         <p id="contador"></p>
-        <button id="playPauseBtn">Tocar Música</button>
     </div>
-
-    <!-- Música com controle de play/pause -->
-    <audio id="musica" loop>
-        <source src="https://github.com/MaikonBrun/Contador-Tempo/blob/main/WhatsApp-Audio-2025-02-14-at-15.26.16-_1_.mp3">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
 
     <script>
         function atualizarContador() {
@@ -87,20 +105,6 @@
         }
 
         setInterval(atualizarContador, 1000);
-
-        // Controle de Play/Pause
-        const musica = document.getElementById("musica");
-        const playPauseBtn = document.getElementById("playPauseBtn");
-
-        playPauseBtn.addEventListener("click", () => {
-            if (musica.paused) {
-                musica.play();
-                playPauseBtn.textContent = "Pausar Música";
-            } else {
-                musica.pause();
-                playPauseBtn.textContent = "Tocar Música";
-            }
-        });
     </script>
 </body>
 </html>
